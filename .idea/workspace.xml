@@ -26,8 +26,12 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RunManager" selected="Go Build.go build awesomeProject">
     <configuration name="go build awesomeProject" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -85,5 +89,9 @@
       <screen x="-142" y="-1440" width="2560" height="1400" />
     </state>
     <state width="1236" height="402" key="GridCell.Tab.0.right/0.0.1536.824/-142.-1440.2560.1400@-142.-1440.2560.1400" timestamp="1606570266576" />
+    <state x="-1" y="-1095" key="SettingsEditor" timestamp="1606571849545">
+      <screen x="-142" y="-1440" width="2560" height="1400" />
+    </state>
+    <state x="-1" y="-1095" key="SettingsEditor/0.0.1536.824/-142.-1440.2560.1400@-142.-1440.2560.1400" timestamp="1606571849545" />
   </component>
 </project>
