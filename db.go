@@ -17,7 +17,7 @@ const (
 )
 func dbConnect() error {
 	var err error
-	db, err = sql.Open("postgres", fmt.Sprintf("host=postgresdb port=5432 user=%s password=%s dbname=%s sslmode=enable",
+	db, err = sql.Open("postgres", fmt.Sprintf("host=0.0.0.0 port=5432 user=%s password=%s dbname=%s sslmode=enable",
 	DB_USER, DB_PASSWORD, DB_NAME))
 	if err != nil {
 		return err
