@@ -24,6 +24,21 @@ func rollHandler(w http.ResponseWriter, r *http.Request) {
 		t.Execute(w, cars)
 	}
 }
+func countHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" {
+		t, err := template.ParseFiles("count.html")
+		if err != nil {
+			log.Fatal(err)
+		}
+		count, err := dbGetCarsCount()
+		if err != nil {
+			log.Fatal(err)
+		}
+		var countRes CountRes
+		countRes.Count = count
+		t.Execute(w, countRes)
+	}
+}
 func addCarHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		t, err := template.ParseFiles("simple_form.html")
@@ -43,6 +58,25 @@ func addCarHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 }
+func getByBrandHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "GET" {
+		t, err := template.ParseFiles("brand_ask.html")
+		if err != nil {
+			log.Fatal(err)
+		}
+		t.Execute(w, nil)
+	} else {
+		t, err := template.ParseFiles("brand_res.html")
+		r.ParseForm()
+		brand := r.Form.Get("brand")
+		res, err := dbGetCarsByBrand(brand)
+		log.Println(len(res))
+		if err != nil || err != nil {
+			log.Fatal(err)
+		}
+		t.Execute(w, res)
+	}
+}
 func GetPort() string {
 	var port = os.Getenv("PORT")
 	if port == "" {
@@ -58,6 +92,8 @@ func main() {
 		log.Fatal(err)
 	}
 	http.HandleFunc("/", rollHandler)
+	http.HandleFunc("/count", countHandler)
 	http.HandleFunc("/add", addCarHandler)
+	http.HandleFunc("/brand", getByBrandHandler)
 	log.Fatal(http.ListenAndServe(GetPort(), nil))
 }
