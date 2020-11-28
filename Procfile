@@ -1,1 +1,1 @@
-"web: awesomeProject" 
+web: awesomeProject
